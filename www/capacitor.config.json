@@ -1,0 +1,11 @@
+{
+  "appId": "com.skat.hollowknight",
+  "appName": "Hollowwood Knight",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

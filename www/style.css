@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #151518 0%, #0a0a0f 35%, #030307 100%);
+  font-family: 'Noto Sans SC', Arial, sans-serif;
+  color: #e6e6e6;
+}
+
+#app {
+  width: min(960px, calc(100vw - 24px));
+  padding: 18px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.12em;
+  color: #f6f0e8;
+}
+
+.subtitle {
+  margin: 8px auto 0;
+  color: #b5b2aa;
+  max-width: 760px;
+}
+
+#hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  background: rgba(12, 12, 20, 0.75);
+  backdrop-filter: blur(10px);
+}
+
+#hud span {
+  font-size: 0.95rem;
+}
+
+.touch-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.touch-button {
+  min-width: 72px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 18px;
+  background: rgba(14, 20, 32, 0.85);
+  color: #f8f3e6;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.touch-button:active,
+.touch-button:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.08);
+}
+
+.menu-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 14, 0.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.menu-overlay.hidden {
+  display: none;
+}
+
+.menu-panel {
+  width: min(520px, calc(100% - 32px));
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(8, 10, 18, 0.96);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+.menu-panel h2 {
+  margin: 0 0 18px;
+  font-size: 1.4rem;
+}
+
+.level-picker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.level-button,
+.menu-primary,
+.menu-secondary {
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(18, 24, 38, 0.95);
+  color: #f4f1e6;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.level-button.active,
+.menu-primary:hover,
+.level-button:hover,
+.menu-secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.12);
+}
+
+.menu-primary {
+  min-width: 132px;
+  background: #6c90ff;
+  border-color: rgba(108,144,255,0.8);
+}
+
+.menu-secondary {
+  min-width: 120px;
+  background: rgba(255,255,255,0.08);
+}
+
+.menu-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+@media (max-width: 620px) {
+  #app {
+    width: calc(100vw - 16px);
+    padding: 12px;
+  }
+
+  .touch-button {
+    min-width: 60px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .menu-panel {
+    padding: 20px;
+  }
+}
+  #app {
+    width: calc(100vw - 16px);
+    padding: 12px;
+  }
+
+  .touch-button {
+    min-width: 60px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+.canvas-wrap {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 28px 60px rgba(0,0,0,0.35);
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  background: linear-gradient(180deg, #09121d 0%, #07070c 100%);
+}
+
+.message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffeb9f;
+  text-shadow: 0 0 18px rgba(255,235,159,0.55);
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+
+.instructions {
+  margin-top: 14px;
+  text-align: center;
+  color: #9f9a91;
+}
+
+.player-glow {
+  box-shadow: 0 0 24px rgba(176, 175, 255, 0.45);
+}
+
+.hit-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 16px rgba(255,255,255,0.08); }
+  50% { box-shadow: 0 0 32px rgba(255,255,255,0.18); }
+}

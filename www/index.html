@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hollowwood Knight</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Hollowwood Knight</h1>
+      <p class="subtitle">探索幽暗洞穴，跳跃、冲刺、攻击并挑战多重关卡。</p>
+    </header>
+
+    <div id="hud">
+      <span id="level">关卡: 1</span>
+      <span id="health">生命: 5</span>
+      <span id="soul">灵魂: 0</span>
+      <span id="ability">技能: 双跳 / 冲刺</span>
+      <span id="state">状态: 准备就绪</span>
+      <span id="platform">平台: 浏览器</span>
+      <span id="save-status">存档: 1 / 3</span>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="game-canvas" width="900" height="520"></canvas>
+      <div id="message" class="message"></div>
+    </div>
+
+    <div id="instructions" class="instructions">← → 移动，Z 跳跃，C 冲刺，X 攻击。支持手柄控制。</div>
+    <div class="touch-controls" aria-label="触控操作按钮">
+      <button class="touch-button" data-action="left">←</button>
+      <button class="touch-button" data-action="right">→</button>
+      <button class="touch-button" data-action="jump">跳跃</button>
+      <button class="touch-button" data-action="attack">攻击</button>
+      <button class="touch-button" data-action="dash">冲刺</button>
+    </div>
+
+    <div id="menu-overlay" class="menu-overlay">
+      <div class="menu-panel">
+        <h2>选择关卡</h2>
+        <div class="level-picker">
+          <button class="level-button active" data-level="0">关卡 1</button>
+          <button class="level-button" data-level="1">关卡 2</button>
+          <button class="level-button" data-level="2">关卡 3</button>
+        </div>
+        <div class="menu-actions">
+          <button id="start-button" class="menu-primary">开始游戏</button>
+          <button id="continue-button" class="menu-secondary">继续存档</button>
+          <button id="reset-save-button" class="menu-secondary">重置存档</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
